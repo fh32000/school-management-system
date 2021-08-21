@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -40,7 +41,7 @@ use Spatie\Translatable\HasTranslations;
  */
 class Fee extends Model
 {
-    use HasTranslations,Uuids;
+    use HasFactory, HasTranslations,Uuids;
     /**
      * The database table used by the model.
      *
@@ -82,6 +83,17 @@ class Fee extends Model
     protected $hidden = [];
 
     public $translatable = ['title'];
+
+    public $type_map=[
+        1=>'school_fee',
+        2=>'bus_fee',
+
+    ];
+
+    public function getTypeNameAttribute()
+    {
+        return __('main.'.$this->type_map[$this->type]) ;
+    }
 
     // علاقة بين الرسوم الدراسية والمراحل الدراسية لجب اسم المرحلة
 

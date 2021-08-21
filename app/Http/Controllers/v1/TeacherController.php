@@ -6,8 +6,8 @@ use App\Http\Requests\StoreTeachers;
 use App\Models\Gender;
 use App\Models\Specialization;
 use App\Models\Teacher;
-use Illuminate\Http\Request;
 use App\Repository\TeacherRepositoryInterface;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
@@ -51,10 +51,10 @@ class TeacherController extends Controller
 
     public function edit($id)
     {
-        $Teachers = Teacher::findOrFail($id);
-        $specializations = $this->Teacher->Getspecialization();
-        $genders = $this->Teacher->GetGender();
-        return view('pages.teachers.edit',compact('Teachers','specializations','genders'));
+        $teacher = Teacher::findOrFail($id);
+        $specializations =specialization::all();
+        $genders = Gender::all();
+        return view('pages.teachers.edit',compact('teacher','specializations','genders'));
     }
 
 

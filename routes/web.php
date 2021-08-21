@@ -1,20 +1,20 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthRouteAPIController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\v1\AttendanceController;
-use App\Http\Controllers\Auth\AuthRouteAPIController;
 use App\Http\Controllers\v1\ClassroomController;
 use App\Http\Controllers\v1\ExamController;
 use App\Http\Controllers\v1\FeeController;
-use App\Http\Controllers\v1\GuardianController;
-use App\Http\Controllers\v1\InvoiceController;
 use App\Http\Controllers\v1\GradeController;
 use App\Http\Controllers\v1\GraduatedController;
+use App\Http\Controllers\v1\GuardianController;
 use App\Http\Controllers\v1\HomeController;
+use App\Http\Controllers\v1\InvoiceController;
 use App\Http\Controllers\v1\PaymentController;
 use App\Http\Controllers\v1\ProcessingFeeController;
 use App\Http\Controllers\v1\PromotionController;
-use App\Http\Controllers\v1\ReceiptStudentController;
+use App\Http\Controllers\v1\ReceiptController;
 use App\Http\Controllers\v1\SectionController;
 use App\Http\Controllers\v1\StudentController;
 use App\Http\Controllers\v1\SubjectController;
@@ -93,7 +93,7 @@ Route::group(
         Route::resource('promotions', PromotionController::class);
         Route::resource('invoices', InvoiceController::class);
         Route::resource('fees', FeeController::class);
-        Route::resource('receipt-students', ReceiptStudentController::class);
+        Route::resource('receipts', ReceiptController::class);
         Route::resource('processing-fees', ProcessingFeeController::class);
         Route::resource('payments', PaymentController::class);
         Route::resource('attendances', AttendanceController::class);

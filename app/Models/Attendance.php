@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -37,7 +38,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Attendance extends Model
 {
-    use Uuids;
+    use HasFactory, Uuids;
 
     /**
      * The database table used by the model.
@@ -52,10 +53,7 @@ class Attendance extends Model
      */
     protected $fillable = [
         'student_id',
-        'grade_id',
-        'classroom_id',
         'section_id',
-        'teacher_id',
         'day',
         'status',
     ];

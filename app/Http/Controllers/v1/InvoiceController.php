@@ -4,15 +4,12 @@ namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InvoiceRequest;
-use App\Models\Classroom;
 use App\Models\Fee;
 use App\Models\Grade;
 use App\Models\Invoice;
-use App\Models\Section;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Repository\FeeInvoicesRepositoryInterface;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
@@ -39,9 +36,9 @@ class InvoiceController extends Controller
     }
     public function edit($id)
     {
-        $invoices = Invoice::findorfail($id);
-        $fees = Fee::where('classroom_id',$invoices->classroom_id)->get();
-        return view('pages.invoices.edit',compact('invoices','fees'));
+        $invoice = Invoice::findorfail($id);
+        $fees = Fee::where('classroom_id',$invoice->classroom_id)->get();
+        return view('pages.invoices.edit',compact('invoice','fees'));
     }
 
     public function store(InvoiceRequest $request)
