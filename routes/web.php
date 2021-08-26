@@ -10,7 +10,7 @@ use App\Http\Controllers\v1\FeeController;
 use App\Http\Controllers\v1\GradeController;
 use App\Http\Controllers\v1\GraduatedController;
 use App\Http\Controllers\v1\GuardianController;
-use App\Http\Controllers\v1\HomeController;
+use App\Http\Controllers\v1\DashboardController;
 use App\Http\Controllers\v1\InvoiceController;
 use App\Http\Controllers\v1\PaymentController;
 use App\Http\Controllers\v1\ProcessingFeeController;
@@ -60,7 +60,7 @@ Route::group(
             'middleware' => ['auth']
         ], function () {
         //==============================dashboard============================
-        Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         //==============================dashboard============================
 
