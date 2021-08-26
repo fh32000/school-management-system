@@ -10,13 +10,16 @@
                                     </span>
                     </div>
                     <div class="float-right text-right">
-                        <p class="card-text text-dark">Visitors</p>
-                        <h4>65,650</h4>
+                        <p class="card-text text-dark">{{__('Total')}} {{__('Students')}}</p>
+                        <h4>{{$data_collect['students']['count']}}</h4>
+                        <p>{{__('This Mathe')}}</p>
+                        <h6>{{$data_collect['students']['count_this_month']}}</h6>
+
                     </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                    <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 81% lower
-                    growth
+                    <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i>
+                    {{__('Growth Rate')}} => {{$data_collect['students']['growth']}} %
                 </p>
             </div>
         </div>
@@ -31,12 +34,12 @@
                                     </span>
                     </div>
                     <div class="float-right text-right">
-                        <p class="card-text text-dark">Orders</p>
-                        <h4>656</h4>
+                        <p class="card-text text-dark">{{__('Sections')}}</p>
+                        <h4>{{$data_collect['sections']['count']}}</h4>
                     </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                    <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total sales
+                    <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> {{__('Total')}} {{__('Sections')}}
                 </p>
             </div>
         </div>
