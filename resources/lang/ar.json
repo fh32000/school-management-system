@@ -1,7 +1,11 @@
 {
     "Students" : "الطلاب",
     "Total" : "إجمالي",
-    "This Mathe" : "هذا الشهر",
+    "Registered This Month" : "مسجل هذا الشهر",
     "Growth Rate" : "معدل النمو",
-    "Sections" :  "الشعب"
+    "Sections" :  "الشعب",
+    "Receipts" :  "الإيصالات",
+    "Guardians" :  "أولياء الأمور",
+    "This Week" :  "في هذا الأسبوع",
+    "RY" :  "ر.ي"
 }

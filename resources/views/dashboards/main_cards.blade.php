@@ -12,7 +12,7 @@
                     <div class="float-right text-right">
                         <p class="card-text text-dark">{{__('Total')}} {{__('Students')}}</p>
                         <h4>{{$data_collect['students']['count']}}</h4>
-                        <p>{{__('This Mathe')}}</p>
+                        <p>{{__('Registered This Month')}}</p>
                         <h6>{{$data_collect['students']['count_this_month']}}</h6>
 
                     </div>
@@ -54,12 +54,12 @@
                                     </span>
                     </div>
                     <div class="float-right text-right">
-                        <p class="card-text text-dark">Revenue</p>
-                        <h4>$65656</h4>
+                        <p class="card-text text-dark">{{__('Receipts')}}</p>
+                        <h4>{{$data_collect['receipts']['count_this_week']}} {{__("RY")}}</h4>
                     </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                    <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
+                    <i class="fa fa-calendar mr-1" aria-hidden="true"></i> {{__('Receipts')}} {{__('This Week')}}
                 </p>
             </div>
         </div>
@@ -74,12 +74,12 @@
                                     </span>
                     </div>
                     <div class="float-right text-right">
-                        <p class="card-text text-dark">Followers</p>
-                        <h4>62,500+</h4>
+                        <p class="card-text text-dark">{{__('Guardians')}}</p>
+                        <h4>{{$data_collect['guardians']['count']}}</h4>
                     </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                    <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+                    <i class="fa fa-repeat mr-1" aria-hidden="true"></i>
                 </p>
             </div>
         </div>
