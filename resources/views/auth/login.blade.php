@@ -152,7 +152,11 @@ login-->
                                     <a href="#" class="float-right">{{__('main.forgot_password')}}</a>
                                 </div>
                             </div>
-                            <button class="button"><span>{{__('main.enter')}}</span><i class="fa fa-check"></i>
+                            <button class="button"><span>{{__('Login')}}</span><i class="fa fa-check"></i>
+                            </button>
+
+                            <a class="button btn-primary" href="register" role="button">{{__('Register')}}</a>
+
                             </button>
                         </form>
                     </div>
