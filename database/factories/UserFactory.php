@@ -30,8 +30,9 @@ class UserFactory extends Factory
 
         return [
             'id' => $this->faker->uuid,
-            'name' => $this->faker->name,
+            'full_name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
+            'phone' => '9677'.$this->faker->randomNumber(8,true),
             'email_verified_at' => now(),
             'password' => null,
             'remember_token' => Str::random(10),
