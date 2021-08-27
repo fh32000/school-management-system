@@ -56,7 +56,7 @@ login-->
         <div class="container">
             <div class="row justify-content-center no-gutters vertical-align mt-50">
                 <div class="col-lg-4 col-md-6 login-fancy-bg bg"
-                     style="background-image: url(images/login-inner-bg.jpg);">
+                     style="background-image: url(../images/login-inner-bg.jpg);">
                     <div class="login-fancy">
                         <div class="card-body">
                             <div class="col-xl-12 mb-10">
