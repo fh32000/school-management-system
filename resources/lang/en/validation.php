@@ -149,6 +149,10 @@ return [
     'attributes' => [
         'email' => 'Email',
         'password' => 'Password',
+        'password_confirmation' => 'Password Confirmation',
+        'full_name' => 'Full Name',
+        'phone' => 'Phone Number',
+        'school_name' => 'School Name',
         'remember_me' => 'Remember me',
         'classrooms' => 'Classrooms',
         'name_ar' => 'Arabic Name',

@@ -51,6 +51,7 @@ Route::group(
     Route::group(['middleware' => ['guest']], function () {
         Route::get('login', [AuthRouteAPIController::class, 'login']);
         Route::get('/', [AuthRouteAPIController::class, 'login']);
+        Route::get('register', [AuthRouteAPIController::class, 'register']);
 
     });
 
