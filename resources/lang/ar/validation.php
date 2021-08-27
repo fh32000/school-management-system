@@ -146,6 +146,10 @@ return [
     'attributes' => [
         'email' => 'البريد الالكتروني',
         'password' => 'كلمة السر',
+        'password_confirmation' => 'تأكيد كلمة السر',
+        'full_name' => 'الأسم الكامل',
+        'school_name' => 'أسم المدرسة',
+        'phone' => 'رقم الجوال',
         'remember_me' => 'ذكرني',
         'classrooms' => 'الصفوف الدراسية',
         'name_ar' => 'الاسم بالانجليزية',

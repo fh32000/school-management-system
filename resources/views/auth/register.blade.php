@@ -54,7 +54,7 @@ login-->
     <section class="height-100vh d-flex align-items-center page-section-ptb login"
              style="background-image: url(assets/images/login-background.jpg); bgcolor:#800000;">
         <div class="container">
-            <div class="row justify-content-center no-gutters vertical-align">
+            <div class="row justify-content-center no-gutters vertical-align mt-50">
                 <div class="col-lg-4 col-md-6 login-fancy-bg bg"
                      style="background-image: url(images/login-inner-bg.jpg);">
                     <div class="login-fancy">
@@ -64,7 +64,7 @@ login-->
                                 <p class="mb-20 m-4 text-white">{{__('main.description')}}</p>
                             </div>
                         </div>
-              
+
                         <div class=" " style="text-align: center;height: 70px">
                             {{--                            <div class="col-xl-12 mb-30">--}}
                             <a href="https://github.com/fh32000/school-management-system" target="_blank"
@@ -85,12 +85,48 @@ login-->
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 bg-white">
-                    <div class="login-fancy pb-40 clearfix">
-                        <h3 class="mb-30">{{__('auth.login')}}</h3>
-
-                        <form method="POST" action="{{ route('login') }}">
+                <div class="col-lg-4 col-md-6 bg-whitep t-50 ">
+                    <div class="login-fancy pb-30 pt-50 clearfix mb-0">
+                        <h3 class="mb-10">{{__('Register New Account')}}</h3>
+                        @include('layouts.error_alert')
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
+
+                            <div class="section-field mb-20">
+                                <label class="mb-10" for="name">{{__('validation.attributes.full_name')}}*</label>
+                                <input id="full_name" type="full_name"
+                                       class="form-control @error('full_name') is-invalid @enderror" name="full_name"
+                                       value="{{ old('full_name') }}" required autocomplete="full_name" autofocus>
+                                @error('full_name')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+
+                            <div class="section-field mb-20">
+                                <label class="mb-10" for="name">{{__('validation.attributes.phone')}}*</label>
+                                <input id="phone" type="phone"
+                                       class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                       value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+
+                            <div class="section-field mb-20">
+                                <label class="mb-10" for="name">{{__('validation.attributes.school_name')}}*</label>
+                                <input id="school_name" type="name"
+                                       class="form-control @error('school_name') is-invalid @enderror" name="school_name"
+                                       value="{{ old('school_name') }}" required autocomplete="school_name" autofocus>
+                                @error('school_name')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
 
                             <div class="section-field mb-20">
                                 <label class="mb-10" for="name">{{__('validation.attributes.email')}}*</label>
@@ -106,7 +142,7 @@ login-->
                             </div>
 
                             <div class="section-field mb-20">
-                                <label class="mb-10" for="Password">{{__('validation.attributes.password')}}
+                                <label class="mb-10" for="password">{{__('validation.attributes.password')}}
                                     * </label>
                                 <input id="password" type="password"
                                        class="form-control @error('password') is-invalid @enderror" name="password"
@@ -119,19 +155,29 @@ login-->
                                 @enderror
 
                             </div>
-                            <div class="section-field">
-                                <div class="remember-checkbox mb-30">
-                                    <input type="checkbox" class="form-control" name="two" id="two"/>
-                                    <label for="two">{{__('validation.attributes.remember_me')}}</label>
-                                    <a href="#" class="float-right">{{__('main.forgot_password')}}</a>
-                                </div>
+
+                            <div class="section-field mb-20">
+                                <label class="mb-10" for="password_confirmation">{{__('validation.attributes.password_confirmation')}}
+                                    * </label>
+                                <input id="password" type="password"
+                                       class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation"
+                                       required autocomplete="current-password">
+
+                                @error('password_confirmation')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+
                             </div>
-                            <button class="button"><span>{{__('Login')}}</span><i class="fa fa-check"></i>
+
+
+
+                            <button class="button"><span>{{__('Register')}}</span><i class="fa fa-check"></i>
                             </button>
 
-                            <a class="button btn-primary" href="register" role="button">{{__('Register')}}</a>
+                            <a class="btn btn-link" href="login" role="button">{{__('Have Account')}}</a>
 
-                            </button>
                         </form>
                     </div>
                 </div>
