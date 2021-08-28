@@ -17,7 +17,7 @@ class SchoolTableSeeder extends Seeder
 
 
         $schools = [];
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $school = School::factory()->make([])->
             toArray();
             $school['name'] = json_encode($school['name']);

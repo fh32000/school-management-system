@@ -8,6 +8,7 @@ use App\Models\Gender;
 use App\Models\Grade;
 use App\Models\Guardian;
 use App\Models\Nationality;
+use App\Models\School;
 use App\Models\Section;
 use App\Models\Student;
 use Illuminate\Database\Seeder;
@@ -30,6 +31,7 @@ class StudentTableSeeder extends Seeder
         $classrooms = Classroom::all();
         $sections = Section::all();
         $guardians = Guardian::all();
+        $schools = School::all();
         $students = [];
         for ($i = 0; $i < 100; $i++) {
             $student = Student::factory()->make([
@@ -38,6 +40,7 @@ class StudentTableSeeder extends Seeder
                 'nationality_id' => $nationalities->random()->id,
                 'blood_type_id' => $blood_types->random()->id,
                 'grade_id' => $grades->random()->id,
+                'school_id' => $schools->random()->id,
                 'classroom_id' => $classrooms->random()->id,
                 'section_id' => $sections->random()->id,
                 'guardian_id' => $guardians->random()->id,

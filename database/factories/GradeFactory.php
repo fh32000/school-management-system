@@ -30,6 +30,7 @@ class GradeFactory extends Factory
         return [
             'id' => $this->faker->uuid,
             'name' => $this->faker->name,
+            'school_id' => null,
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date)
         ];
