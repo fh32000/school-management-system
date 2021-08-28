@@ -9,27 +9,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
+
 /**
- * App\Models\ReceiptStudent
+ * App\Models\Receipt
  *
- * @property int $id
+ * @property string $id
  * @property string $date
- * @property int $student_id
+ * @property string $student_id
  * @property string|null $debit
  * @property string $description
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Student $student
- * @method static Builder|ReceiptStudent newModelQuery()
- * @method static Builder|ReceiptStudent newQuery()
- * @method static Builder|ReceiptStudent query()
- * @method static Builder|ReceiptStudent whereCreatedAt($value)
- * @method static Builder|ReceiptStudent whereDate($value)
- * @method static Builder|ReceiptStudent whereDebit($value)
- * @method static Builder|ReceiptStudent whereDescription($value)
- * @method static Builder|ReceiptStudent whereId($value)
- * @method static Builder|ReceiptStudent whereStudentId($value)
- * @method static Builder|ReceiptStudent whereUpdatedAt($value)
+ * @property-read \App\Models\Student $student
+ * @method static \Database\Factories\ReceiptFactory factory(...$parameters)
+ * @method static Builder|Receipt newModelQuery()
+ * @method static Builder|Receipt newQuery()
+ * @method static Builder|Receipt query()
+ * @method static Builder|Receipt whereCreatedAt($value)
+ * @method static Builder|Receipt whereDate($value)
+ * @method static Builder|Receipt whereDebit($value)
+ * @method static Builder|Receipt whereDescription($value)
+ * @method static Builder|Receipt whereId($value)
+ * @method static Builder|Receipt whereStudentId($value)
+ * @method static Builder|Receipt whereUpdatedAt($value)
  * @mixin Eloquent
  */
 class Receipt extends Model

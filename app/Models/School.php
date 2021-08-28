@@ -10,25 +10,29 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
- * App\Models\Exam
+ * App\Models\School
  *
- * @property int $id
+ * @property string $id
  * @property array $name
- * @property int $term
- * @property string $academic_year
+ * @property string|null $logo
+ * @property string|null $description
+ * @property string|null $notes
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read array $translations
- * @method static Builder|Exam newModelQuery()
- * @method static Builder|Exam newQuery()
- * @method static Builder|Exam query()
- * @method static Builder|Exam whereAcademicYear($value)
- * @method static Builder|Exam whereCreatedAt($value)
- * @method static Builder|Exam whereId($value)
- * @method static Builder|Exam whereName($value)
- * @method static Builder|Exam whereTerm($value)
- * @method static Builder|Exam whereUpdatedAt($value)
+ * @method static \Database\Factories\SchoolFactory factory(...$parameters)
+ * @method static Builder|School newModelQuery()
+ * @method static Builder|School newQuery()
+ * @method static Builder|School query()
+ * @method static Builder|School whereCreatedAt($value)
+ * @method static Builder|School whereDescription($value)
+ * @method static Builder|School whereId($value)
+ * @method static Builder|School whereLogo($value)
+ * @method static Builder|School whereName($value)
+ * @method static Builder|School whereNotes($value)
+ * @method static Builder|School whereUpdatedAt($value)
  * @mixin Eloquent
  */
 class School extends Model

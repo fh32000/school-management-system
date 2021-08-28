@@ -8,24 +8,25 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
+
 /**
  * App\Models\Invoice
  *
- * @property int $id
+ * @property string $id
  * @property string $invoice_at
- * @property int $student_id
- * @property int $grade_id
- * @property int $classroom_id
- * @property int $fee_id
+ * @property string $student_id
+ * @property string $grade_id
+ * @property string $classroom_id
+ * @property string $fee_id
  * @property string $amount
  * @property string|null $description
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Classroom $classroom
- * @property-read Fee $fees
- * @property-read Grade $grade
- * @property-read Section $section
- * @property-read Student $student
+ * @property-read \App\Models\Classroom $classroom
+ * @property-read \App\Models\Fee $fee
+ * @property-read \App\Models\Grade $grade
+ * @property-read \App\Models\Section $section
+ * @property-read \App\Models\Student $student
  * @method static Builder|Invoice newModelQuery()
  * @method static Builder|Invoice newQuery()
  * @method static Builder|Invoice query()
@@ -36,11 +37,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Invoice whereFeeId($value)
  * @method static Builder|Invoice whereGradeId($value)
  * @method static Builder|Invoice whereId($value)
- * @method static Builder|Invoice whereInvoiceDate($value)
+ * @method static Builder|Invoice whereInvoiceAt($value)
  * @method static Builder|Invoice whereStudentId($value)
  * @method static Builder|Invoice whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static Builder|Invoice whereInvoiceAt($value)
  */
 class Invoice extends Model
 {

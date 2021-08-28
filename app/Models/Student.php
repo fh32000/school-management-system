@@ -16,75 +16,66 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Student
  *
- * @property int $id
+ * @property string $id
  * @property array $name
  * @property string $email
  * @property string $password
- * @property int $gender_id
- * @property int $nationalitie_id
- * @property int $blood_id
+ * @property string|null $school_id
+ * @property string $gender_id
+ * @property string $nationality_id
+ * @property string $blood_type_id
+ * @property string $grade_id
+ * @property string $classroom_id
+ * @property string $section_id
+ * @property string $guardian_id
  * @property string $birthday
- * @property int $grade_id
- * @property int $classroom_id
- * @property int $section_id
- * @property int $parent_id
  * @property string $academic_year
  * @property Carbon|null $deleted_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Nationality $Nationality
- * @property-read Collection|Attendance[] $attendance
+ * @property-read Collection|\App\Models\Attendance[] $attendance
  * @property-read int|null $attendance_count
- * @property-read Classroom $classroom
- * @property-read Gender $gender
+ * @property-read \App\Models\Classroom $classroom
+ * @property-read \App\Models\Gender $gender
  * @property-read array $translations
- * @property-read Grade $grade
- * @property-read Collection|Image[] $images
- * @property-read int|null $images_count
- * @property-read Guardian $myparent
- * @property-read Section $section
- * @property-read Collection|StudentAccount[] $student_account
+ * @property-read \App\Models\Grade $grade
+ * @property-read \App\Models\Guardian $guardian
+ * @property-read MediaCollection|\App\Models\Media[] $media
+ * @property-read int|null $media_count
+ * @property-read \App\Models\Nationality $nationality
+ * @property-read \App\Models\Section $section
+ * @property-read Collection|\App\Models\StudentAccount[] $student_account
  * @property-read int|null $student_account_count
+ * @method static \Database\Factories\StudentFactory factory(...$parameters)
+ * @method static Builder|Student graduated()
  * @method static Builder|Student newModelQuery()
  * @method static Builder|Student newQuery()
  * @method static \Illuminate\Database\Query\Builder|Student onlyTrashed()
  * @method static Builder|Student query()
  * @method static Builder|Student whereAcademicYear($value)
- * @method static Builder|Student whereBloodId($value)
+ * @method static Builder|Student whereBirthday($value)
+ * @method static Builder|Student whereBloodTypeId($value)
  * @method static Builder|Student whereClassroomId($value)
  * @method static Builder|Student whereCreatedAt($value)
- * @method static Builder|Student whereDateBirth($value)
  * @method static Builder|Student whereDeletedAt($value)
  * @method static Builder|Student whereEmail($value)
  * @method static Builder|Student whereGenderId($value)
  * @method static Builder|Student whereGradeId($value)
+ * @method static Builder|Student whereGuardianId($value)
  * @method static Builder|Student whereId($value)
  * @method static Builder|Student whereName($value)
  * @method static Builder|Student whereNationalityId($value)
- * @method static Builder|Student whereParentId($value)
  * @method static Builder|Student wherePassword($value)
+ * @method static Builder|Student whereSchoolId($value)
  * @method static Builder|Student whereSectionId($value)
  * @method static Builder|Student whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|Student withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Student withoutTrashed()
  * @mixin Eloquent
- * @property string $nationalise_id
- * @method static Builder|Student graduated()
- * @method static Builder|Student whereNationaliseId($value)
- * @property string $nationality_id
- * @property string $guardian_id
- * @method static StudentFactory factory(...$parameters)
- * @method static Builder|Student whereBirthday($value)
- * @method static Builder|Student whereGuardianId($value)
- * @property string $blood_type_id
- * @property-read Guardian $guardian
- * @property-read MediaCollection|Media[] $media
- * @property-read int|null $media_count
- * @property-read Nationality $nationality
- * @method static Builder|Student whereBloodTypeId($value)
  */
 class Student extends Model implements HasMedia
 {
@@ -165,11 +156,7 @@ class Student extends Model implements HasMedia
     }
 
 
-    // علاقة بين الطلاب والصور لجلب اسم الصور  في جدول الطلاب
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
+
 
     // علاقة بين الطلاب والجنسيات  لجلب اسم الجنسية  في جدول الجنسيات
 

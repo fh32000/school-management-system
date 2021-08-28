@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
+
 /**
  * App\Models\FundAccount
  *
- * @property int $id
+ * @property string $id
  * @property string $date
- * @property int|null $receipt_id
- * @property int|null $payment_id
+ * @property string|null $receipt_id
+ * @property string|null $payment_id
  * @property string|null $debit
  * @property string|null $credit
  * @property string $description

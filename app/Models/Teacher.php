@@ -11,24 +11,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Teacher
  *
- * @property int $id
+ * @property string $id
  * @property string $email
  * @property string $password
  * @property array $name
- * @property int $specialization_id
- * @property int $gender_id
+ * @property string $specialization_id
+ * @property string $gender_id
  * @property string $joining_at
  * @property string $address
+ * @property string|null $school_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Gender $genders
+ * @property-read \App\Models\Gender $genders
  * @property-read array $translations
- * @property-read Collection|Section[] $sections
+ * @property-read Collection|\App\Models\Section[] $sections
  * @property-read int|null $sections_count
- * @property-read Specialization $specializations
+ * @property-read \App\Models\Specialization $specializations
+ * @method static \Database\Factories\TeacherFactory factory(...$parameters)
  * @method static Builder|Teacher newModelQuery()
  * @method static Builder|Teacher newQuery()
  * @method static Builder|Teacher query()
@@ -37,13 +40,13 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Teacher whereEmail($value)
  * @method static Builder|Teacher whereGenderId($value)
  * @method static Builder|Teacher whereId($value)
- * @method static Builder|Teacher whereJoiningDate($value)
+ * @method static Builder|Teacher whereJoiningAt($value)
  * @method static Builder|Teacher whereName($value)
  * @method static Builder|Teacher wherePassword($value)
+ * @method static Builder|Teacher whereSchoolId($value)
  * @method static Builder|Teacher whereSpecializationId($value)
  * @method static Builder|Teacher whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static Builder|Teacher whereJoiningAt($value)
  */
 class Teacher extends Model
 {
