@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SectionRequest extends FormRequest
+class TeacherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -48,28 +48,35 @@ class SectionRequest extends FormRequest
 
     public static function creationRules($key = null)
     {
+
         $creation_rules = [
             'name_ar' => ['required', 'string', 'min:2'],
             'name_en' => ['required', 'string', 'min:2'],
-            'grade_id' => ['required', 'uuid', 'exists:grades,id'],
-            'classroom_id' => ['required', 'uuid', 'exists:classrooms,id'],
-            'teacher_id' => ['required', 'uuid', 'exists:teachers,id'],
+            'address' => ['required', 'string', 'min:3'],
+            'email' => ['required', 'email', 'unique:teachers,email,' . request()->id],
+            'password' => ['required', 'string', 'min:6'],
+            'specialization_id' => ['required', 'uuid', 'exists:specializations,id'],
+            'gender_id' => ['required', 'uuid', 'exists:genders,id'],
+            'joining_at' => ['required', 'date', 'date_format:Y-m-d'],
+
         ];
 
         return $key ? $creation_rules[$key] : $creation_rules;
 
     }
 
-    public static function updateRules($key = null, $user_id = null)
+    public static function updateRules($key = null)
     {
         $update_rules = [
             'name_ar' => ['string', 'min:2'],
             'name_en' => ['string', 'min:2'],
-            'grade_id' => ['uuid', 'exists:grades,id'],
-            'classroom_id' => ['uuid', 'exists:classrooms,id'],
-            'teacher_id' => ['uuid', 'exists:teachers,id'],
+            'address' => ['string', 'min:3'],
+            'email' => ['email', 'unique:teachers,email,' . request()->id],
+            'password' => ['string', 'min:6'],
+            'specialization_id' => ['uuid', 'exists:specializations,id'],
+            'gender_id' => ['uuid', 'exists:genders,id'],
+            'joining_at' => ['date', 'date_format:Y-m-d'],
         ];
-
 
         return $key ? $update_rules[$key] : $update_rules;
 
@@ -84,5 +91,4 @@ class SectionRequest extends FormRequest
         return $key ? $delete_rules[$key] : $delete_rules;
 
     }
-
 }

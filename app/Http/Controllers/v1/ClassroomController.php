@@ -22,9 +22,9 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-
-        $classrooms = Classroom::all();
-        $grades= request()->user()->school->grades;
+        $school= request()->user()->school;
+        $classrooms= $school->classrooms;
+        $grades= $school->grades;
         return view('pages.classrooms.index', compact('classrooms', 'grades'));
 
     }
@@ -61,7 +61,8 @@ class ClassroomController extends Controller
      */
     public function update(ClassroomRequest $request)
     {
-        $classroom = Classroom::findOrFail($request->id);
+        $school= request()->user()->school;
+        $classroom =$school->classrooms()->findOrFail($request->id);
         $input = $request->only((new Classroom())->getFillable());
         $input['name'] = ['en' => $request->name_ar, 'ar' => $request->name_en];
 
@@ -79,8 +80,8 @@ class ClassroomController extends Controller
      */
     public function destroy(Request $request)
     {
-
-        Classroom::destroy($request->id);
+        $school= request()->user()->school;
+        $classroom =$school->classrooms()->findOrFail($request->id)->destroy($request->id);
         toastr()->error(__('messages.delete'));
         return redirect()->route('classrooms.index');
 

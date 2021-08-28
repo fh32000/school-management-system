@@ -153,7 +153,7 @@
                                                                                         <div class="col">
                                                                                             <label for="inputName"
                                                                                                    class="control-label">{{ __('section.name_grade') }}</label>
-                                                                                            <select name="Grade_id"
+                                                                                            <select name="grade_id"
                                                                                                     class="custom-select"
                                                                                                     onclick="console.log($(this).val())">
                                                                                                 <!--placeholder-->
@@ -229,7 +229,6 @@
                                                                                         </div>
 
 
-                                                                                </div>
                                                                                 <div class="modal-footer">
                                                                                     <button type="button"
                                                                                             class="btn btn-secondary"
@@ -359,9 +358,9 @@
                                             <label for="inputName"
                                                    class="control-label">{{ __('section.name_class') }}</label>
                                             <select name="classroom_id" class="custom-select">
-                                                @foreach($grades as $grade)
-                                                    <option value="{{$grade->id}}">{{$grade->name}}</option>
-                                                @endforeach
+{{--                                                @foreach($grades as $grade)--}}
+{{--                                                    <option value="{{$grade->id}}">{{$grade->name}}</option>--}}
+{{--                                                @endforeach--}}
                                             </select>
                                         </div>
                                         <br>
@@ -377,7 +376,6 @@
                                         </div>
 
 
-                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">{{ __('section.close') }}</button>
@@ -398,23 +396,17 @@
             @toastr_js
             @toastr_render
             <script>
+                var grades = {!! json_encode($grades->toArray(), JSON_HEX_TAG) !!};
+
                 $(document).ready(function () {
-                    $('select[name="Grade_id"]').on('change', function () {
-                        var Grade_id = $(this).val();
-                        if (Grade_id) {
-                            $.ajax({
-                                url: "{{ URL::to('classes') }}/" + Grade_id,
-                                type: "GET",
-                                dataType: "json",
-                                success: function (data) {
-                                    $('select[name="Class_id"]').empty();
-                                    $.each(data, function (key, value) {
-                                        $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
-                                    });
-                                },
+                    $('select[name="grade_id"]').on('change', function () {
+                        var grade_id = $(this).val();
+                        if (grade_id) {
+                            var grade = grades.find(o => o.id === grade_id);
+                            $('select[name="classroom_id"]').empty();
+                            $.each(grade.classrooms, function (key, value) {
+                                $('select[name="classroom_id"]').append('<option value="' + value.id + '">' + value.name['ar']+"--" + value.name['en'] + '</option>');
                             });
-                        } else {
-                            console.log('AJAX load did not work');
                         }
                     });
                 });

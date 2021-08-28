@@ -78,7 +78,6 @@ class Teacher extends Model
         'specialization_id',
         'gender_id',
         'joining_at',
-        'address',
     ];
     /**
      * The database primary key value.

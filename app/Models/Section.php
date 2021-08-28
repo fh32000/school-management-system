@@ -70,6 +70,7 @@ class Section extends Model
      */
     protected $fillable = [
         'name',
+        'status',
         'grade_id',
         'classroom_id'
     ];

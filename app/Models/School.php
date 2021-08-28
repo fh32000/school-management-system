@@ -80,4 +80,19 @@ class School extends Model
     {
         return $this->hasMany(Grade::class);
     }
+
+    public function classrooms()
+    {
+        return $this->hasManyThrough(Classroom::class,Grade::class);
+    }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
+    }
 }

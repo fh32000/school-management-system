@@ -19,13 +19,15 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students = Student::all();
+        $school= request()->user()->school;
+        $students= $school->students;
         return view('pages.students.index', compact('students'));
     }
 
     public function edit($id)
     {
-        $student = Student::findOrFail($id);
+        $school= request()->user()->school;
+        $student= $school->students()->findOrFail($id);;
         $data['grades'] =   request()->user()->school->grades;
 
         $data['guardians'] = Guardian::all();
@@ -37,7 +39,8 @@ class StudentController extends Controller
 
     public function update(StudentRequest $request)
     {
-        $student = Student::findorfail($request->id);
+        $school= request()->user()->school;
+        $student= $school->students()->findOrFail($request->id);
         $input = $request->only((new Student())->getFillable());
         $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
         if ($request->has('password')) {
@@ -77,7 +80,8 @@ class StudentController extends Controller
 
     public function show($id)
     {
-        $student = Student::findorfail($id);
+        $school= request()->user()->school;
+        $student= $school->students()->findOrFail($id);
         return view('pages.students.show', compact('student'));
     }
 
