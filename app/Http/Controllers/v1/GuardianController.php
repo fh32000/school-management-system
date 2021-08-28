@@ -21,7 +21,7 @@ class GuardianController extends Controller
 
     public function create()
     {
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         $classrooms = Classroom::all();
         $sections = Section::all();
         return view('pages.students.graduated.create', compact('grades', 'classrooms', 'sections'));

@@ -16,7 +16,7 @@ class FeeController extends Controller
     {
 
         $fees = Fee::all();
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         return view('pages.fees.index', compact('fees', 'grades'));
 
     }
@@ -24,7 +24,7 @@ class FeeController extends Controller
     public function create()
     {
 
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         $classrooms = Classroom::all();
         return view('pages.fees.add', compact('grades', 'classrooms'));
     }
@@ -33,7 +33,7 @@ class FeeController extends Controller
     {
 
         $fee = Fee::findorfail($id);
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         $classrooms = Classroom::all();
         return view('pages.fees.edit', compact('fee', 'grades', 'classrooms'));
 

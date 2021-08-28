@@ -20,7 +20,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $invoices = Invoice::with('student')->get();
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         Log::alert($invoices);
         return view('pages.invoices.index', compact('invoices', 'grades'));
     }

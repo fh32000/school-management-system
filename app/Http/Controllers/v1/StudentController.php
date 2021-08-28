@@ -26,7 +26,8 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = Student::findOrFail($id);
-        $data['grades'] = Grade::all();
+        $data['grades'] =   request()->user()->school->grades;
+
         $data['guardians'] = Guardian::all();
         $data['genders'] = Gender::all();
         $data['nationalities'] = Nationality::all();
@@ -61,7 +62,8 @@ class StudentController extends Controller
 
     public function create()
     {
-        $data['grades'] = Grade::all();
+        $data['grades'] = request()->user()->school->grades;
+
         $data['guardians'] = Guardian::all();
         $data['genders'] = Gender::all();
         $data['nationalities'] = Nationality::all();

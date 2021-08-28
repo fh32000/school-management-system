@@ -21,7 +21,7 @@ class SectionController extends Controller
     public function index()
     {
         $grades = Grade::with(['sections'])->get();
-        $list_grades = Grade::all();
+        $grades= request()->user()->school->grades;
         $teachers = Teacher::all();
         return view('pages.sections.index', compact('grades', 'list_grades', 'teachers'));
 

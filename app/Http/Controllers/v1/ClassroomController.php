@@ -24,7 +24,7 @@ class ClassroomController extends Controller
     {
 
         $classrooms = Classroom::all();
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         return view('pages.classrooms.index', compact('classrooms', 'grades'));
 
     }
@@ -99,7 +99,7 @@ class ClassroomController extends Controller
 
     public function Filter_Classes(Request $request)
     {
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         $Search = Classroom::select('*')->where('grade_id', '=', $request->grade_id)->get();
         return view('pages.classrooms.index', compact('grades'))->withDetails($Search);
 

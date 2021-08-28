@@ -75,4 +75,9 @@ class School extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
+    }
 }
