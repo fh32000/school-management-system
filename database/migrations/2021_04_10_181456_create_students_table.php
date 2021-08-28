@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->text('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->foreignUuid('school_id')->nullable();
             $table->foreignUuid('gender_id')->references('id')->on('genders')->onDelete('cascade');
             $table->foreignUuid('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
             $table->foreignUuid('blood_type_id')->references('id')->on('blood_types')->onDelete('cascade');

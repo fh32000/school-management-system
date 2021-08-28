@@ -11,9 +11,11 @@ class CreateGradesTable extends Migration
         Schema::create('grades', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->timestamps();
             $table->string('name');
             $table->text('notes')->nullable();
+            $table->foreignUuid('school_id')->nullable();
+            $table->timestamps();
+
         });
     }
 

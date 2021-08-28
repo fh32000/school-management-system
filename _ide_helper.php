@@ -13,7 +13,8 @@
 
 namespace Illuminate\Support\Facades {
 
-    use use App\Console\Kernel;
+    use;
+    use App\Console\Kernel;
     use App\Models\User;
     use BadMethodCallException;
     use Closure;
@@ -53,7 +54,8 @@ namespace Illuminate\Support\Facades {
     use Illuminate\Contracts\Container\BindingResolutionException;
     use Illuminate\Contracts\Container\CircularDependencyException;
     use Illuminate\Contracts\Container\Container;
-    use Illuminate\Contracts\Container\ContextualBindingBuilder;use Illuminate\Contracts\Cookie\QueueingFactory;
+    use Illuminate\Contracts\Container\ContextualBindingBuilder;
+    use Illuminate\Contracts\Cookie\QueueingFactory;
     use Illuminate\Contracts\Encryption\DecryptException;
     use Illuminate\Contracts\Encryption\EncryptException;
     use Illuminate\Contracts\Events\Dispatcher;
@@ -117,7 +119,8 @@ namespace Illuminate\Support\Facades {
     use Illuminate\Session\Store;
     use Illuminate\Support\Collection;
     use Illuminate\Support\LazyCollection;
-    use Illuminate\Support\ServiceProvider;use Illuminate\Support\Testing\Fakes\BusFake;
+    use Illuminate\Support\ServiceProvider;
+    use Illuminate\Support\Testing\Fakes\BusFake;
     use Illuminate\Support\Testing\Fakes\EventFake;
     use Illuminate\Support\Testing\Fakes\MailFake;
     use Illuminate\Support\Testing\Fakes\NotificationFake;
@@ -149,8 +152,11 @@ namespace Illuminate\Support\Facades {
     use Symfony\Component\HttpFoundation\BinaryFileResponse;
     use Symfony\Component\HttpFoundation\ParameterBag;
     use Symfony\Component\HttpFoundation\StreamedResponse;
-    use Symfony\Component\HttpKernel\Exception\HttpException;use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;use Symfony\Component\Routing\Exception\RouteNotFoundException;
-    use Throwable;use TypeError;
+    use Symfony\Component\HttpKernel\Exception\HttpException;
+    use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+    use Symfony\Component\Routing\Exception\RouteNotFoundException;
+    use Throwable;
+    use TypeError;
 
     /**
      *
