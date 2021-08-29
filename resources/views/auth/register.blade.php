@@ -42,7 +42,7 @@
 preloader -->
 
     <div id="pre-loader">
-        <img src="images/pre-loader/loader-01.svg" alt="">
+        <img src="{{ asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
     </div>
 
     <!--=================================
@@ -52,11 +52,11 @@ preloader -->
 login-->
 
     <section class="height-100vh d-flex align-items-center page-section-ptb login"
-             style="background-image: url(assets/images/login-background.jpg); bgcolor:#800000;">
+             style="background-image: url({{ asset('assets/images/login-background.jpg') }}); bgcolor:#800000;">
         <div class="container">
             <div class="row justify-content-center no-gutters vertical-align mt-50">
                 <div class="col-lg-4 col-md-6 login-fancy-bg bg"
-                     style="background-image: url(../images/login-inner-bg.jpg);">
+                     style="background-color: dimgray;">
                     <div class="login-fancy">
                         <div class="card-body">
                             <div class="col-xl-12 mb-10">
@@ -86,7 +86,7 @@ login-->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 bg-whitep t-50 ">
-                    <div class="login-fancy pb-30 pt-50 clearfix mb-0">
+                    <div class="login-fancy pb-30 pt-50 clearfix mb-0" style="background-color: gainsboro;">
                         <h3 class="mb-10">{{__('Register New Account')}}</h3>
                         @include('layouts.error_alert')
                         <form method="POST" action="{{ route('register') }}">
