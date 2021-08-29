@@ -10,22 +10,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Fee
  *
- * @property int $id
+ * @property string $id
  * @property array $title
  * @property string $amount
- * @property int $grade_id
- * @property int $classroom_id
+ * @property string $grade_id
+ * @property string $classroom_id
  * @property string|null $description
  * @property string $year
  * @property int $type
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Classroom $classroom
+ * @property-read \App\Models\Classroom $classroom
  * @property-read array $translations
- * @property-read Gender $grades
+ * @property-read mixed $type_name
+ * @property-read \App\Models\Grade $grade
+ * @method static \Database\Factories\FeeFactory factory(...$parameters)
  * @method static Builder|Fee newModelQuery()
  * @method static Builder|Fee newQuery()
  * @method static Builder|Fee query()
@@ -40,7 +43,6 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Fee whereUpdatedAt($value)
  * @method static Builder|Fee whereYear($value)
  * @mixin Eloquent
- * @property-read Grade $grade
  */
 class Fee extends Model
 {

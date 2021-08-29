@@ -13,10 +13,11 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Guardian
  *
- * @property int $id
+ * @property string $id
  * @property string $email
  * @property string $password
  * @property array $father_name
@@ -24,22 +25,25 @@ use Spatie\Translatable\HasTranslations;
  * @property string $father_passport_id
  * @property string $father_phone
  * @property array $father_job
- * @property int $father_nationality_id
- * @property int $father_blood_type_id
- * @property int $father_religion_id
+ * @property string $father_nationality_id
+ * @property string $father_blood_type_id
+ * @property string $father_religion_id
  * @property string $father_address
  * @property array $mother_name
  * @property string $mother_national_id
  * @property string $mother_passport_id
  * @property string $mother_phone
  * @property array $mother_job
- * @property int $mother_nationality_id
- * @property int $mother_blood_type_id
- * @property int $mother_religion_id
+ * @property string $mother_nationality_id
+ * @property string $mother_blood_type_id
+ * @property string $mother_religion_id
  * @property string $mother_address
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read array $translations
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\App\Models\Media[] $media
+ * @property-read int|null $media_count
+ * @method static \Database\Factories\GuardianFactory factory(...$parameters)
  * @method static Builder|Guardian newModelQuery()
  * @method static Builder|Guardian newQuery()
  * @method static Builder|Guardian query()
@@ -67,7 +71,6 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Guardian wherePassword($value)
  * @method static Builder|Guardian whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static GuardianFactory factory(...$parameters)
  */
 class Guardian extends Model implements HasMedia
 {
@@ -117,6 +120,7 @@ class Guardian extends Model implements HasMedia
         'mother_blood_type_id',
         'mother_religion_id',
         'mother_address',
+        'school_id'
     ];
     /**
      * The database primary key value.

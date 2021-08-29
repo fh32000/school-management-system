@@ -12,6 +12,7 @@ use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
 
+
 /**
  * App\Models\Specialization
  *
@@ -20,6 +21,7 @@ use Spatie\Translatable\HasTranslations;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read array $translations
+ * @method static \Database\Factories\SpecializationFactory factory(...$parameters)
  * @method static Builder|Specialization newModelQuery()
  * @method static Builder|Specialization newQuery()
  * @method static Builder|Specialization query()
@@ -28,7 +30,6 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Specialization whereName($value)
  * @method static Builder|Specialization whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static SpecializationFactory factory(...$parameters)
  */
 class Specialization extends Model
 {

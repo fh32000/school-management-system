@@ -11,14 +11,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Gender
  *
- * @property int $id
+ * @property string $id
  * @property array $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read array $translations
+ * @method static \Database\Factories\GenderFactory factory(...$parameters)
  * @method static Builder|Gender newModelQuery()
  * @method static Builder|Gender newQuery()
  * @method static Builder|Gender query()
@@ -27,7 +29,6 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Gender whereName($value)
  * @method static Builder|Gender whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static GenderFactory factory(...$parameters)
  */
 class Gender extends Model
 {

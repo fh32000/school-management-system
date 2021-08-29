@@ -10,16 +10,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Exam
  *
- * @property int $id
+ * @property string $id
  * @property array $name
  * @property int $term
  * @property string $academic_year
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read array $translations
+ * @method static \Database\Factories\ExamFactory factory(...$parameters)
  * @method static Builder|Exam newModelQuery()
  * @method static Builder|Exam newQuery()
  * @method static Builder|Exam query()

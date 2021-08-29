@@ -40,6 +40,8 @@ class CreateGuardiansTable extends Migration
             $table->foreignUuid('mother_blood_type_id')->references('id')->on('blood_types');
             $table->foreignUuid('mother_religion_id')->references('id')->on('religions');
             $table->string('mother_address');
+
+            $table->foreignUuid('school_id')->nullable();
             $table->timestamps();
         });
     }

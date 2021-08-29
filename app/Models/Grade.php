@@ -12,19 +12,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Grade
  *
- * @property int $id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property string $id
  * @property array $name
  * @property string|null $notes
- * @property-read Collection|Classroom[] $classrooms
+ * @property string|null $school_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Collection|\App\Models\Classroom[] $classrooms
  * @property-read int|null $classrooms_count
  * @property-read array $translations
- * @property-read Collection|Section[] $sections
+ * @property-read Collection|\App\Models\Section[] $sections
  * @property-read int|null $sections_count
+ * @method static \Database\Factories\GradeFactory factory(...$parameters)
  * @method static Builder|Grade newModelQuery()
  * @method static Builder|Grade newQuery()
  * @method static Builder|Grade query()
@@ -32,9 +35,9 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Grade whereId($value)
  * @method static Builder|Grade whereName($value)
  * @method static Builder|Grade whereNotes($value)
+ * @method static Builder|Grade whereSchoolId($value)
  * @method static Builder|Grade whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static GradeFactory factory(...$parameters)
  */
 class Grade extends Model
 {

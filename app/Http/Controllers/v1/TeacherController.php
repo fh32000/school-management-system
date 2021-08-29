@@ -4,6 +4,7 @@ namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTeachers;
+use App\Http\Requests\TeacherRequest;
 use App\Models\Gender;
 use App\Models\Specialization;
 use App\Models\Teacher;
@@ -15,8 +16,9 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $Teachers = Teacher::all();
-        return view('pages.teachers.teachers', compact('Teachers'));
+        $school = request()->user()->school;
+        $teachers = $school->teachers;
+        return view('pages.teachers.teachers', compact('teachers'));
     }
 
     public function create()
@@ -26,59 +28,51 @@ class TeacherController extends Controller
         return view('pages.teachers.create', compact('specializations', 'genders'));
     }
 
-    public function store(StoreTeachers $request)
+    public function store(TeacherRequest $request)
     {
-        try {
-            $Teachers = new Teacher();
-            $Teachers->email = $request->Email;
-            $Teachers->password = Hash::make($request->Password);
-            $Teachers->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $Teachers->specialization_id = $request->Specialization_id;
-            $Teachers->gender_id = $request->Gender_id;
-            $Teachers->joining_at = $request->Joining_Date;
-            $Teachers->address = $request->Address;
-            $Teachers->save();
-            toastr()->success(__('messages.success'));
-            return redirect()->route('teachers.create');
-        } catch (Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
-        }
-
+        $input = $request->only((new Teacher())->getFillable());
+        $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
+        $input['password'] = bcrypt($request->password);
+        $school = request()->user()->school;
+        $teacher = $school->teachers()->create($input);
+        toastr()->success(__('messages.success'));
+        return redirect()->route('teachers.index');
     }
 
 
     public function edit($id)
     {
-        $teacher = Teacher::findOrFail($id);
+        $school = request()->user()->school;
+        $teacher = $school->teachers()->findOrFail($id);
         $specializations = specialization::all();
         $genders = Gender::all();
         return view('pages.teachers.edit', compact('teacher', 'specializations', 'genders'));
     }
 
 
-    public function update(Request $request)
+    public function update(TeacherRequest $request)
     {
-        try {
-            $Teachers = Teacher::findOrFail($request->id);
-            $Teachers->email = $request->Email;
-            $Teachers->password = Hash::make($request->Password);
-            $Teachers->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $Teachers->specialization_id = $request->Specialization_id;
-            $Teachers->gender_id = $request->Gender_id;
-            $Teachers->joining_at = $request->Joining_Date;
-            $Teachers->address = $request->Address;
-            $Teachers->save();
-            toastr()->success(__('messages.update'));
-            return redirect()->route('teachers.index');
-        } catch (Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+
+        $school = request()->user()->school;
+        $teacher = $school->teachers()->findOrFail($request->id);
+
+        $input = $request->only((new Teacher())->getFillable());
+        $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
+        if ($request->has('password')) {
+            $input['password'] = bcrypt($request->password);
         }
+        $teacher->update($input);
+
+        toastr()->success(__('messages.update'));
+        return redirect()->route('teachers.index');
+
     }
 
 
     public function destroy(Request $request)
     {
-        Teacher::findOrFail($request->id)->delete();
+        $school = request()->user()->school;
+        $teacher = $school->teachers()->findOrFail($request->id)->delete();
         toastr()->error(__('messages.delete'));
         return redirect()->route('teachers.index');
     }

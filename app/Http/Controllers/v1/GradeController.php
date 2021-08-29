@@ -18,7 +18,7 @@ class GradeController extends Controller
      */
     public function index()
     {
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         return view('pages.grades.index', compact('grades'));
     }
 
@@ -32,7 +32,8 @@ class GradeController extends Controller
     {
         $input = $request->only((new Grade())->getFillable());
         $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
-        $grade = Grade::create($input);
+        $grades= request()->user()->school->grades();
+        $grades->create($input);
         toastr()->success(__('messages.success'));
         return redirect()->route('grades.index');
 
@@ -46,7 +47,8 @@ class GradeController extends Controller
      */
     public function update(GradeRequest $request)
     {
-        $grade = Grade::findOrFail($request->id);
+        $grades= request()->user()->school->grades();
+        $grade =  $grades->findOrFail($request->id);
         $input = $request->only((new Grade())->getFillable());
         $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
         $grade->update($input);
@@ -63,8 +65,8 @@ class GradeController extends Controller
      */
     public function destroy(Request $request)
     {
-
-        $grade = Grade::withCount('classrooms')->findOrFail($request->id);
+        $grades= request()->user()->school->grades();
+        $grade =  $grades->withCount('classrooms')->findOrFail($request->id);
         if ($grade->classrooms_count == 0) {
             $grade->delete();
             toastr()->error(__('messages.delete'));

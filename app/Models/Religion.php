@@ -11,14 +11,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Religion
  *
- * @property int $id
+ * @property string $id
  * @property array $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read array $translations
+ * @method static \Database\Factories\ReligionFactory factory(...$parameters)
  * @method static Builder|Religion newModelQuery()
  * @method static Builder|Religion newQuery()
  * @method static Builder|Religion query()
@@ -27,7 +29,6 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Religion whereName($value)
  * @method static Builder|Religion whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static ReligionFactory factory(...$parameters)
  */
 class Religion extends Model
 {

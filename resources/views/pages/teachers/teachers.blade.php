@@ -39,27 +39,27 @@
                                         </thead>
                                         <tbody>
                                         <?php $i = 0; ?>
-                                        @foreach($Teachers as $Teacher)
+                                        @foreach($teachers as $teacher)
                                             <tr>
                                                 <?php $i++; ?>
                                                 <td>{{ $i }}</td>
-                                                <td>{{$Teacher->name}}</td>
-                                                <td>{{$Teacher->genders->name}}</td>
-                                                <td>{{$Teacher->joining_at}}</td>
-                                                <td>{{$Teacher->specializations->name}}</td>
+                                                <td>{{$teacher->name}}</td>
+                                                <td>{{$teacher->genders->name}}</td>
+                                                <td>{{$teacher->joining_at}}</td>
+                                                <td>{{$teacher->specializations->name}}</td>
                                                 <td>
-                                                    <a href="{{route('teachers.edit',$Teacher->id)}}"
+                                                    <a href="{{route('teachers.edit',$teacher->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
-                                                            data-target="#delete_Teacher{{ $Teacher->id }}"
+                                                            data-target="#delete_Teacher{{ $teacher->id }}"
                                                             title="{{ __('grade.delete') }}"><i class="fa fa-trash"></i>
                                                     </button>
                                                 </td>
                                             </tr>
 
-                                            <div class="modal fade" id="delete_Teacher{{$Teacher->id}}" tabindex="-1"
+                                            <div class="modal fade" id="delete_Teacher{{$teacher->id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <form action="{{route('teachers.destroy','test')}}" method="post">
@@ -77,7 +77,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <p> {{ __('class.warning_grade') }}</p>
-                                                                <input type="hidden" name="id" value="{{$Teacher->id}}">
+                                                                <input type="hidden" name="id" value="{{$teacher->id}}">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <div class="modal-footer">

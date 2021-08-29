@@ -37,15 +37,15 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="title">{{__('teacher.email')}}</label>
-                                        <input type="email" name="Email" class="form-control">
-                                        @error('Email')
+                                        <input type="email" name="email" class="form-control">
+                                        @error('email')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col">
                                         <label for="title">{{__('teacher.password')}}</label>
-                                        <input type="password" name="Password" class="form-control">
-                                        @error('Password')
+                                        <input type="password" name="password" class="form-control">
+                                        @error('password')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -56,15 +56,15 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="title">{{__('teacher.name_ar')}}</label>
-                                        <input type="text" name="Name_ar" class="form-control">
-                                        @error('Name_ar')
+                                        <input type="text" name="name_ar" class="form-control">
+                                        @error('name_ar')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col">
                                         <label for="title">{{__('teacher.name_en')}}</label>
-                                        <input type="text" name="Name_en" class="form-control">
-                                        @error('Name_en')
+                                        <input type="text" name="name_en" class="form-control">
+                                        @error('name_en')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -73,26 +73,26 @@
                                 <div class="form-row">
                                     <div class="form-group col">
                                         <label for="inputCity">{{__('teacher.specialization')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Specialization_id">
+                                        <select class="custom-select my-1 mr-sm-2" name="specialization_id">
                                             <option selected disabled>{{__('main.choose')}}...</option>
                                             @foreach($specializations as $specialization)
                                                 <option
                                                     value="{{$specialization->id}}">{{$specialization->name}}</option>
                                             @endforeach
                                         </select>
-                                        @error('Specialization_id')
+                                        @error('specialization_id')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col">
                                         <label for="inputState">{{__('teacher.gender')}}</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Gender_id">
+                                        <select class="custom-select my-1 mr-sm-2" name="gender_id">
                                             <option selected disabled>{{__('main.choose')}}...</option>
                                             @foreach($genders as $gender)
                                                 <option value="{{$gender->id}}">{{$gender->name}}</option>
                                             @endforeach
                                         </select>
-                                        @error('Gender_id')
+                                        @error('gender_id')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -104,9 +104,9 @@
                                         <label for="title">{{__('teacher.joining_at')}}</label>
                                         <div class='input-group date'>
                                             <input class="form-control" type="text" id="datepicker-action"
-                                                   name="Joining_Date" data-date-format="yyyy-mm-dd" required>
+                                                   name="joining_at" data-date-format="yyyy-mm-dd" required>
                                         </div>
-                                        @error('Joining_Date')
+                                        @error('joining_at')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -115,9 +115,9 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">{{__('teacher.address')}}</label>
-                                    <textarea class="form-control" name="Address"
+                                    <textarea class="form-control" name="address"
                                               id="exampleFormControlTextarea1" rows="4"></textarea>
-                                    @error('Address')
+                                    @error('address')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

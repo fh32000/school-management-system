@@ -11,6 +11,7 @@ use Database\Seeders\GuardianTableSeeder;
 use Database\Seeders\NationalityTableSeeder;
 use Database\Seeders\ReceiptTableSeeder;
 use Database\Seeders\ReligionTableSeeder;
+use Database\Seeders\SchoolTableSeeder;
 use Database\Seeders\SectionTableSeeder;
 use Database\Seeders\SpecializationTableSeeder;
 use Database\Seeders\StudentTableSeeder;
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(SchoolTableSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(GradeSeeder::class);
         $this->call(ClassroomTableSeeder::class);

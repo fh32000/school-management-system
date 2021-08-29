@@ -23,6 +23,7 @@ class CreateTeachersTable extends Migration
             $table->foreignUuid('gender_id')->references('id')->on('genders')->onDelete('cascade');
             $table->date('joining_at');
             $table->text('address');
+            $table->foreignUuid('school_id')->nullable();
             $table->timestamps();
         });
     }
