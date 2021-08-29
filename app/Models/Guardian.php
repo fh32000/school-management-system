@@ -120,6 +120,7 @@ class Guardian extends Model implements HasMedia
         'mother_blood_type_id',
         'mother_religion_id',
         'mother_address',
+        'school_id'
     ];
     /**
      * The database primary key value.

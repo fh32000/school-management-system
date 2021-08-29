@@ -6,6 +6,7 @@ use App\Models\BloodType;
 use App\Models\Guardian;
 use App\Models\Nationality;
 use App\Models\Religion;
+use App\Models\School;
 use Illuminate\Database\Seeder;
 
 class GuardianTableSeeder extends Seeder
@@ -22,6 +23,8 @@ class GuardianTableSeeder extends Seeder
         $nationalities = Nationality::all();
         $blood_types = BloodType::all();
         $religions = Religion::all();
+        $schools = School::all();
+
         $guardians = [];
         for ($i = 0; $i < 100; $i++) {
             $nationality_id = $nationalities->random()->id;
@@ -33,6 +36,7 @@ class GuardianTableSeeder extends Seeder
                 'mother_nationality_id' => $nationality_id,
                 'mother_blood_type_id' => $blood_types->random()->id,
                 'mother_religion_id' => $religions->random()->id,
+                'school_id' => $schools->random()->id,
             ])->
             toArray();
             $guardian['father_name'] = json_encode($guardian['father_name']);

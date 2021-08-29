@@ -20,8 +20,9 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $grades = request()->user()->school->grades()->with(['sections','classrooms'])->get();
-        $teachers = Teacher::all();
+        $school = request()->user()->school;
+        $grades = $school->grades()->with(['sections','classrooms'])->get();
+        $teachers = $school->teachers;
         return view('pages.sections.index', compact('grades', 'teachers'));
 
     }
@@ -37,9 +38,9 @@ class SectionController extends Controller
         $input = $request->only((new Section())->getFillable());
 
         $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
-        $section = Section::insert($input);
+        $section = Section::create($input);
 
-        $section->teachers()->attach($request->teacher_id);
+        $section->teachers()->attach([$request->teacher_id]);
         toastr()->success(__('messages.success'));
 
         return redirect()->route('sections.index');

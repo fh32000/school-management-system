@@ -364,11 +364,11 @@
                                             </select>
                                         </div>
                                         <br>
-                                        <div class="col">
+                                        <div class="col m-2">
                                             <label for="inputName"
                                                    class="control-label">{{ __('section.name_teacher') }}</label>
-                                            <select multiple name="teacher_ids[]" class="form-control"
-                                                    id="exampleFormControlSelect2">
+                                            <select  name="teacher_id" class="form-control" >
+
                                                 @foreach($teachers as $teacher)
                                                     <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                                 @endforeach

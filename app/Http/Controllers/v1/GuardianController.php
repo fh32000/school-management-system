@@ -15,7 +15,9 @@ class GuardianController extends Controller
 {
     public function index()
     {
-        $guardians = Guardian::all();
+        $school = request()->user()->school;
+        $guardians = $school->guardians;
+
         return view('pages.guardians.index', compact('guardians'));
     }
 

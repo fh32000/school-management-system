@@ -15,7 +15,9 @@ class FeeController extends Controller
     public function index()
     {
 
-        $fees = Fee::all();
+        $school = request()->user()->school;
+        $fees = $school->fees;
+
         $grades= request()->user()->school->grades;
         return view('pages.fees.index', compact('fees', 'grades'));
 

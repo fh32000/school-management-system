@@ -95,4 +95,17 @@ class School extends Model
     {
         return $this->hasMany(Teacher::class);
     }
+
+    public function guardians()
+    {
+        return $this->hasMany(Guardian::class);
+    }
+    public function fees()
+    {
+        return $this->hasManyThrough(Fee::class,Grade::class);
+    }
+    public function receipts()
+    {
+        return $this->hasManyThrough(Receipt::class,Student::class);
+    }
 }
