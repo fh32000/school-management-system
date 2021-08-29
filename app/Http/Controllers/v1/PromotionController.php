@@ -15,7 +15,7 @@ class PromotionController extends Controller
 
     public function index()
     {
-        $Grades = Grade::all();
+        $grades= request()->user()->school->grades;
         return view('pages.students.promotion.index', compact('Grades'));
     }
 

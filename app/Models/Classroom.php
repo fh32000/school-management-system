@@ -11,16 +11,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Classroom
  *
- * @property int $id
+ * @property string $id
  * @property array $name
- * @property int $grade_id
+ * @property string $grade_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read array $translations
- * @property-read Grade $grade
+ * @property-read \App\Models\Grade $grade
+ * @method static \Database\Factories\ClassroomFactory factory(...$parameters)
  * @method static Builder|Classroom newModelQuery()
  * @method static Builder|Classroom newQuery()
  * @method static Builder|Classroom query()
@@ -30,7 +32,6 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Classroom whereName($value)
  * @method static Builder|Classroom whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static ClassroomFactory factory(...$parameters)
  */
 class Classroom extends Model
 {

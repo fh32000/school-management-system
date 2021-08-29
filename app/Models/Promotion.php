@@ -8,28 +8,29 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
+
 /**
  * App\Models\Promotion
  *
- * @property int $id
- * @property int $student_id
- * @property int $from_grade
- * @property int $from_classroom
- * @property int $from_section
- * @property int $to_grade
- * @property int $to_classroom
- * @property int $to_section
+ * @property string $id
+ * @property string $student_id
+ * @property string $from_grade
+ * @property string $from_classroom
+ * @property string $from_section
+ * @property string $to_grade
+ * @property string $to_classroom
+ * @property string $to_section
  * @property string $academic_year
  * @property string $academic_year_new
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Classroom $f_classroom
- * @property-read Grade $f_grade
- * @property-read Section $f_section
- * @property-read Student $student
- * @property-read Classroom $t_classroom
- * @property-read Grade $t_grade
- * @property-read Section $t_section
+ * @property-read \App\Models\Classroom $f_classroom
+ * @property-read \App\Models\Grade $f_grade
+ * @property-read \App\Models\Section $f_section
+ * @property-read \App\Models\Student $student
+ * @property-read \App\Models\Classroom $t_classroom
+ * @property-read \App\Models\Grade $t_grade
+ * @property-read \App\Models\Section $t_section
  * @method static Builder|Promotion newModelQuery()
  * @method static Builder|Promotion newQuery()
  * @method static Builder|Promotion query()

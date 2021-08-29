@@ -10,20 +10,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Subject
  *
- * @property int $id
+ * @property string $id
  * @property array $name
- * @property int $grade_id
- * @property int $classroom_id
- * @property int $teacher_id
+ * @property string $grade_id
+ * @property string $classroom_id
+ * @property string $teacher_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Classroom $classroom
+ * @property-read \App\Models\Classroom $classroom
  * @property-read array $translations
- * @property-read Grade $grade
- * @property-read Teacher $teacher
+ * @property-read \App\Models\Grade $grade
+ * @property-read \App\Models\Teacher $teacher
+ * @method static \Database\Factories\SubjectFactory factory(...$parameters)
  * @method static Builder|Subject newModelQuery()
  * @method static Builder|Subject newQuery()
  * @method static Builder|Subject query()

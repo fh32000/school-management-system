@@ -8,17 +8,18 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
+
 /**
  * App\Models\Payment
  *
- * @property int $id
+ * @property string $id
  * @property string $date
- * @property int $student_id
+ * @property string $student_id
  * @property string|null $amount
  * @property string $description
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Student $student
+ * @property-read \App\Models\Student $student
  * @method static Builder|Payment newModelQuery()
  * @method static Builder|Payment newQuery()
  * @method static Builder|Payment query()

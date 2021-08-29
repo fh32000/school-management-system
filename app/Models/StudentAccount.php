@@ -8,17 +8,18 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
+
 /**
  * App\Models\StudentAccount
  *
- * @property int $id
+ * @property string $id
  * @property string $date
  * @property string $type
- * @property int|null $invoice_id
- * @property int|null $receipt_id
- * @property int|null $processing_id
- * @property int|null $payment_id
- * @property int $student_id
+ * @property string|null $invoice_id
+ * @property string|null $receipt_id
+ * @property string|null $processing_id
+ * @property string|null $payment_id
+ * @property string $student_id
  * @property string|null $debit
  * @property string|null $credit
  * @property string|null $description
@@ -32,8 +33,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|StudentAccount whereDate($value)
  * @method static Builder|StudentAccount whereDebit($value)
  * @method static Builder|StudentAccount whereDescription($value)
- * @method static Builder|StudentAccount whereFeeInvoiceId($value)
  * @method static Builder|StudentAccount whereId($value)
+ * @method static Builder|StudentAccount whereInvoiceId($value)
  * @method static Builder|StudentAccount wherePaymentId($value)
  * @method static Builder|StudentAccount whereProcessingId($value)
  * @method static Builder|StudentAccount whereReceiptId($value)
@@ -41,7 +42,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|StudentAccount whereType($value)
  * @method static Builder|StudentAccount whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static Builder|StudentAccount whereInvoiceId($value)
  */
 class StudentAccount extends Model
 {

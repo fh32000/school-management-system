@@ -40,6 +40,7 @@ class StudentFactory extends Factory
             'classroom_id' => null,
             'section_id' => null,
             'guardian_id' => null,
+            'school_id' => null,
             'birthday' => Carbon::now()->subYear(random_int(7, 18)),
             'academic_year' => Carbon::now()->year,
             'created_at' => $date,

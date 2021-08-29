@@ -24,7 +24,8 @@ class QuizController extends Controller
 
     public function create()
     {
-        $data['grades'] = Grade::all();
+        $data['grades'] =  request()->user()->school->grades;
+
         $data['subjects'] = Subject::all();
         $data['teachers'] = Teacher::all();
         $data['classrooms'] = Classroom::all();
@@ -52,7 +53,8 @@ class QuizController extends Controller
     public function edit($id)
     {
         $quiz = Quiz::findorFail($id);
-        $data['grades'] = Grade::all();
+        $data['grades'] =  request()->user()->school->grades;
+
         $data['subjects'] = Subject::all();
         $data['teachers'] = Teacher::all();
         return view('pages.quizzes.edit', $data, compact('quiz'));

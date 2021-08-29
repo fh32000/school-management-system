@@ -8,7 +8,6 @@ use App\Models\FundAccount;
 use App\Models\Receipt;
 use App\Models\Student;
 use App\Models\StudentAccount;
-use App\Repository\ReceiptStudentsRepositoryInterface;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,9 +16,9 @@ class ReceiptController extends Controller
 {
     public function index()
     {
-        $receipts = Receipt::all();
+        $school = request()->user()->school;
+        $receipts = $school->receipts;
         return view('pages.receipts.index', compact('receipts'));
-
     }
 
     public function show($id)
@@ -124,12 +123,10 @@ class ReceiptController extends Controller
 
     public function destroy($request)
     {
-        try {
-            Receipt::destroy($request->id);
-            toastr()->error(__('messages.delete'));
-            return redirect()->back();
-        } catch (Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+
+        Receipt::destroy($request->id);
+        toastr()->error(__('messages.delete'));
+        return redirect()->back();
+
     }
 }

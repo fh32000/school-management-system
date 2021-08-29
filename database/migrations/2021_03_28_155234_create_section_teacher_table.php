@@ -18,8 +18,6 @@ class CreateSectionTeacherTable extends Migration
             $table->primary('id');
             $table->foreignUuid('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');
-
-
         });
     }
 

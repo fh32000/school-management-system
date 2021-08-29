@@ -6,7 +6,7 @@
                 <div class="clearfix">
                     <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-user-graduate highlight-icon" aria-hidden="true"></i>
                                     </span>
                     </div>
                     <div class="float-right text-right">
@@ -30,7 +30,7 @@
                 <div class="clearfix">
                     <div class="float-left">
                                     <span class="text-warning">
-                                        <i class="fa fa-shopping-cart highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-chalkboard highlight-icon" aria-hidden="true"></i>
                                     </span>
                     </div>
                     <div class="float-right text-right">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="float-right text-right">
                         <p class="card-text text-dark">{{__('Receipts')}}</p>
-                        <h4>{{$data_collect['receipts']['count_this_week']}} {{__("RY")}}</h4>
+                        <h4>@convert($data_collect['receipts']['count_this_week']) {{__("RY")}}</h4>
                     </div>
                 </div>
                 <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -70,7 +70,7 @@
                 <div class="clearfix">
                     <div class="float-left">
                                     <span class="text-primary">
-                                        <i class="fa fa-twitter highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-user-tie highlight-icon" aria-hidden="true"></i>
                                     </span>
                     </div>
                     <div class="float-right text-right">
