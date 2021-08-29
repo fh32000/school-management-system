@@ -51,11 +51,14 @@ class GuardianLivewire extends Component
 
     public function render()
     {
+        $school = request()->user()->school;
+        $guardians = $school->guardians;
+
         return view('pages.guardians.add_parent', [
             'nationalises' => Nationality::all(),
             'blood_types' => BloodType::all(),
             'religions' => Religion::all(),
-            'guardians' => Guardian::all(),
+            'guardians' => $guardians,
         ]);
 
     }
@@ -122,7 +125,9 @@ class GuardianLivewire extends Component
         $guardian_data['mother_name'] = ['en' => $request_data ['mother_name_en'], 'ar' => $request_data ['mother_name_ar']];
         $guardian_data['mother_job'] = ['en' => $request_data ['mother_job_en'], 'ar' => $request_data ['mother_job_ar']];
         $guardian_data['password'] = bcrypt($guardian_data['password']);
-        $guardian = Guardian::create($guardian_data->toArray());
+
+        $school = request()->user()->school;
+        $guardian = $school->guardians()->create($guardian_data->toArray());
 
         foreach ($this->attachments as $attachment) {
             $guardian->addMedia($attachment->getRealPath())->toMediaCollection('attachments');
@@ -131,6 +136,7 @@ class GuardianLivewire extends Component
         $this->successMessage = __('messages.success');
         $this->clearForm();
         $this->currentStep = 1;
+        return redirect()->back();
     }
 
     public function clearForm()

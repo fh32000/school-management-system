@@ -35,6 +35,7 @@ class UserFactory extends Factory
             'phone' => '9677'.$this->faker->randomNumber(8,true),
             'email_verified_at' => now(),
             'password' => null,
+            'school_id' => null,
             'remember_token' => Str::random(10),
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date)

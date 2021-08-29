@@ -20,10 +20,10 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $grades = Grade::with(['sections'])->get();
-        $list_grades = Grade::all();
-        $teachers = Teacher::all();
-        return view('pages.sections.index', compact('grades', 'list_grades', 'teachers'));
+        $school = request()->user()->school;
+        $grades = $school->grades()->with(['sections','classrooms'])->get();
+        $teachers = $school->teachers;
+        return view('pages.sections.index', compact('grades', 'teachers'));
 
     }
 
@@ -35,13 +35,12 @@ class SectionController extends Controller
     public function store(SectionRequest $request)
     {
 
-        $Sections = new Section();
-        $Sections->name = ['ar' => $request->name_ar, 'en' => $request->name_en];
-        $Sections->grade_id = $request->grade_id;
-        $Sections->classroom_id = $request->classroom_id;
-        $Sections->status = 1;
-        $Sections->save();
-        $Sections->teachers()->attach($request->teacher_id);
+        $input = $request->only((new Section())->getFillable());
+
+        $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
+        $section = Section::create($input);
+
+        $section->teachers()->attach([$request->teacher_id]);
         toastr()->success(__('messages.success'));
 
         return redirect()->route('sections.index');
@@ -66,7 +65,7 @@ class SectionController extends Controller
         $Sections->grade_id = $request->Grade_id;
         $Sections->class_id = $request->Class_id;
 
-        if (isset($request->Status)) {
+        if (isset($request->status)) {
             $Sections->status = 1;
         } else {
             $Sections->status = 2;

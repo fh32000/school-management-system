@@ -52,11 +52,11 @@ preloader -->
 login-->
 
     <section class="height-100vh d-flex align-items-center page-section-ptb login"
-             style="background-image: url(assets/images/login-background.jpg); bgcolor:#800000;">
+             style="background-image: url(../assets/images/login-background.jpg); bgcolor:#800000;">
         <div class="container">
             <div class="row justify-content-center no-gutters vertical-align">
                 <div class="col-lg-4 col-md-6 login-fancy-bg bg"
-                     style="background-image: url(images/login-inner-bg.jpg);">
+                     style="background-image: url(../images/login-inner-bg.jpg);">
                     <div class="login-fancy">
                         <div class="card-body">
                             <div class="col-xl-12 mb-10">

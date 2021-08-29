@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Gender;
+use App\Models\School;
 use App\Models\Specialization;
 use App\Models\Teacher;
 use Illuminate\Database\Seeder;
@@ -20,6 +21,7 @@ class TeacherTableSeeder extends Seeder
 
         $specializations = Specialization::all();
         $genders = Gender::all();
+        $schools = School::all();
 
         $teachers = [];
         for ($i = 0; $i < 100; $i++) {
@@ -27,6 +29,8 @@ class TeacherTableSeeder extends Seeder
                 'password' => $password,
                 'specialization_id' => $specializations->random()->id,
                 'gender_id' => $genders->random()->id,
+                'school_id' => $schools->random()->id,
+
             ])->
             toArray();
             $teacher['name'] = json_encode($teacher['name']);

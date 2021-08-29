@@ -15,13 +15,15 @@ class GuardianController extends Controller
 {
     public function index()
     {
-        $guardians = Guardian::all();
+        $school = request()->user()->school;
+        $guardians = $school->guardians;
+
         return view('pages.guardians.index', compact('guardians'));
     }
 
     public function create()
     {
-        $grades = Grade::all();
+        $grades= request()->user()->school->grades;
         $classrooms = Classroom::all();
         $sections = Section::all();
         return view('pages.students.graduated.create', compact('grades', 'classrooms', 'sections'));

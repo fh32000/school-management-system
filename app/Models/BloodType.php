@@ -10,13 +10,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
+
 /**
  * App\Models\BloodType
  *
- * @property int $id
+ * @property string $id
  * @property string $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @method static \Database\Factories\BloodTypeFactory factory(...$parameters)
  * @method static Builder|BloodType newModelQuery()
  * @method static Builder|BloodType newQuery()
  * @method static Builder|BloodType query()
@@ -25,7 +27,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|BloodType whereName($value)
  * @method static Builder|BloodType whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static BloodTypeFactory factory(...$parameters)
  */
 class BloodType extends Model
 {

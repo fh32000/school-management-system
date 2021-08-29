@@ -48,6 +48,7 @@ class GuardianFactory extends Factory
             'mother_blood_type_id' => null,
             'mother_religion_id' => null,
             'mother_address' => $this->faker->address,
+            'school_id' => null,
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date)
         ];

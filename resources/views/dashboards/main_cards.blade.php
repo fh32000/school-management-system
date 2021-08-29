@@ -6,7 +6,7 @@
                 <div class="clearfix">
                     <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa fa-group highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-user-graduate highlight-icon" aria-hidden="true"></i>
                                     </span>
                     </div>
                     <div class="float-right text-right">
@@ -30,7 +30,7 @@
                 <div class="clearfix">
                     <div class="float-left">
                                     <span class="text-warning">
-                                        <i class="fa fa-window-maximize highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-chalkboard highlight-icon" aria-hidden="true"></i>
                                     </span>
                     </div>
                     <div class="float-right text-right">
@@ -70,7 +70,7 @@
                 <div class="clearfix">
                     <div class="float-left">
                                     <span class="text-primary">
-                                        <i class="fa fa-address-card highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-user-tie highlight-icon" aria-hidden="true"></i>
                                     </span>
                     </div>
                     <div class="float-right text-right">

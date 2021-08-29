@@ -36,6 +36,7 @@ class TeacherFactory extends Factory
             'address' => $this->faker->address,
             'specialization_id' => null,
             'gender_id' => null,
+            'school_id' => null,
             'joining_at' => $date->subDays(random_int(5, 15)),
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date)

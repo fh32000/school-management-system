@@ -12,20 +12,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
+
 /**
  * App\Models\Section
  *
- * @property int $id
+ * @property string $id
  * @property array $name
  * @property int $status
- * @property int $grade_id
- * @property int $classroom_id
+ * @property string $grade_id
+ * @property string $classroom_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Classroom $classroom
+ * @property-read \App\Models\Classroom $classroom
  * @property-read array $translations
- * @property-read Collection|Teacher[] $teachers
+ * @property-read Collection|\App\Models\Teacher[] $teachers
  * @property-read int|null $teachers_count
+ * @method static \Database\Factories\SectionFactory factory(...$parameters)
  * @method static Builder|Section newModelQuery()
  * @method static Builder|Section newQuery()
  * @method static Builder|Section query()
@@ -37,7 +39,6 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Section whereStatus($value)
  * @method static Builder|Section whereUpdatedAt($value)
  * @mixin Eloquent
- * @method static SectionFactory factory(...$parameters)
  */
 class Section extends Model
 {
@@ -69,6 +70,7 @@ class Section extends Model
      */
     protected $fillable = [
         'name',
+        'status',
         'grade_id',
         'classroom_id'
     ];
